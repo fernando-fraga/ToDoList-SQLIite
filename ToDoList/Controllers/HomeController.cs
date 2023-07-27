@@ -16,8 +16,9 @@ namespace ToDoList.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index() {
-            var todoListviewModel = GetAllTodos();
+        public IActionResult Index() 
+        {
+            ToDoViewModel todoListviewModel = GetAllTodos();
             return View(todoListviewModel);
         }
 
@@ -50,17 +51,18 @@ namespace ToDoList.Controllers
                                 TodoList = todoList
                             };
                         }
-                    }
+                    };
                 }
             }
 
-            return new ToDoViewModel {
+            return new ToDoViewModel 
+            {
                 TodoList = todoList
             };
 
         }
 
-        public RedirectResult Insert(ToDo todo)
+        public IActionResult Insert(ToDo todo)
         {
 
             using (SQLiteConnection con = new SQLiteConnection(connectionString)) 
@@ -81,7 +83,7 @@ namespace ToDoList.Controllers
                 }
             }
 
-            return Redirect("");
+            return RedirectToAction ("Index");
         }
     }
 }
