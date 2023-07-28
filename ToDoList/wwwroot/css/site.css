@@ -1,15 +1,14 @@
 body {
-  background-color: #202020;
-  color: #f0f0f0;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
+    background-color: #202020;
+    color: #f0f0f0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
     text-align: center;
     margin-bottom: 20px;
-
 }
 
 
@@ -28,27 +27,24 @@ body {
     padding: 20px;
 }
 
-.add-todo
-{
+.add-todo {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
     align-items: center;
-
 }
 
 
-.add-todo input[type="text"] 
-{
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #303030;
-    border: 1px solid #444;
-    color: rgba(240, 240, 240, 0.6);
-    text-align: center;
-    transition: color 0.3s ease-in-out;
-}
+    .add-todo input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #303030;
+        border: 1px solid #444;
+        color: rgba(240, 240, 240, 0.6);
+        text-align: center;
+        transition: color 0.3s ease-in-out;
+    }
 
 .add-button {
     padding: 10px 20px;
@@ -59,29 +55,29 @@ body {
     cursor: pointer;
 }
 
-.add-button:hover {
-    background-color: #45a049;
-}
+    .add-button:hover {
+        background-color: #45a049;
+    }
 
 .todo-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.todo-table th,
-.todo-table td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #444;
-}
+    .todo-table th,
+    .todo-table td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #444;
+    }
 
-.todo-table th {
-    background-color: #303030;
-}
+    .todo-table th {
+        background-color: #303030;
+    }
 
-.todo-table tr:hover {
-    background-color: #444;
-}
+    .todo-table tr:hover {
+        background-color: #444;
+    }
 
 .delete-button,
 .update-button {
@@ -96,13 +92,12 @@ body {
 .update-button {
     background-color: #ffa500;
     margin-left: 5px;
-
 }
 
-.delete-button:hover{
+.delete-button:hover {
     background-color: #d32f2f;
-
 }
+
 .update-button:hover {
     background-color: #ff9100;
 }
@@ -117,9 +112,35 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
-.input-todo:focus{
+    .input-todo:focus {
+        color: #f0f0f0;
+        outline: none;
+    }
+
+.footer {
+    text-align: center;
+    background-color: #202020;
     color: #f0f0f0;
-    outline: none;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.footer-info {
+    margin: 0;
+}
+
+.footer-info a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-info img {
+    vertical-align: middle;
 }
 
 
@@ -128,6 +149,7 @@ body {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
