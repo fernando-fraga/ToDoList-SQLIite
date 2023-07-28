@@ -22,6 +22,44 @@ namespace ToDoList.Controllers
             return View(todoListviewModel);
         }
 
+
+        public JsonResult PopularForm (int id) 
+        {
+            var todo = GetById(id);
+            return Json(todo);
+        }
+
+        internal ToDo GetById (int id) 
+        {
+            ToDo todo = new();
+
+            using (SQLiteConnection con = new SQLiteConnection(connectionString)) 
+            {
+                using (var tableCommand = con.CreateCommand()) 
+                {
+                    con.Open();
+                    tableCommand.CommandText = $"SELECT * FROM Todo Where Id = {id}";
+                    
+                    using (var reader = tableCommand.ExecuteReader()) 
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            todo.Id = reader.GetInt32(0);
+                            todo.Name = reader.GetString(1);
+                        }
+                        else 
+                        {
+                            return todo;
+                        }
+                    };
+                }
+            }
+            return todo;
+        }
+
+
+
         internal ToDoViewModel GetAllTodos() 
         {
             List<ToDo> todoList = new();
@@ -85,5 +123,47 @@ namespace ToDoList.Controllers
 
             return RedirectToAction ("Index");
         }
+
+
+        public IActionResult Update (ToDo todo)
+        {
+            using (SQLiteConnection con = new SQLiteConnection(connectionString)) {
+                using (var tableCommand = con.CreateCommand())
+                {
+                    con.Open();
+                    tableCommand.CommandText = $"UPDATE Todo SET name = '{todo.Name}' where Id = {todo.Id}";
+
+                    try {
+                        tableCommand.ExecuteNonQuery();
+                    } catch (Exception ex) {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+            return RedirectToAction("Index");
+
+
+        }
+
+
+
+        [HttpPost]
+        public JsonResult Delete (int id)
+        {
+            using (SQLiteConnection con = new SQLiteConnection(connectionString))
+            {
+                using (var tableCommand = con.CreateCommand()) 
+                {
+                    con.Open();
+                    tableCommand.CommandText = $"DELETE from Todo where Id = {id}";
+                    tableCommand.ExecuteNonQuery();
+                }
+            }
+
+            return Json(new { });
+        }
+
+
+
     }
 }

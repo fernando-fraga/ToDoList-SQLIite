@@ -1,1 +1,24 @@
-﻿The table will be here
+﻿@model ToDoViewModel
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var t in Model.TodoList) 
+        {
+            <tr>
+                <td class="todos-column" scope="row">@t.Id</td>
+                <td class="todos-column">@t.Name</td>
+                <td class="buttons-column">
+                    <input type="submit" value="Delete" onclick="deleteTodo(@t.Id)">
+                    <input type="submit" value="Update" onclick="popularForm(@t.Id)">
+                </td>
+            </tr>    
+             
+        }
+    </tbody>
+</table>
