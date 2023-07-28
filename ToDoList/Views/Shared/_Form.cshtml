@@ -1,11 +1,14 @@
 ﻿@model ToDoViewModel
 
+<div class="header">
+    <h1>Minha Lista de Tarefas</h1>
+</div>
+
 <form asp-action="Insert" id="form-action" method="post" role="form">
-    <div asp-validation-summary="All">
-        <label asp-for="Todo.Name"></label>
+    <div asp-validation-summary="All" class="add-todo">
         <input asp-for="Todo.Id" type="hidden"/>
-        <input asp-for="Todo.Name"/>
+        <input asp-for="Todo.Name" class="input-todo" placeholder="Insira sua tarefa aqui"/>
         <span asp-validation-for="Todo.Name"></span>
-        <input type="submit" id="form-button" value="Add ToDo"/>    
+        <input type="submit" id="form-button" class="add-button" value="Adicionar"/>    
     </div>
 </form>

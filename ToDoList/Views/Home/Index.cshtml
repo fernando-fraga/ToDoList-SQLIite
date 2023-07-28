@@ -1,24 +1,28 @@
 ﻿@model ToDoViewModel
 
-<table>
+<table class="todo-table">
     <thead>
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
+            <th scope="col">ID</th>
+            <th scope="col">Nome da Tarefa</th>
+            <th scope="col">Deletar</th>
+            <th scope="col">Atualizar</th>
         </tr>
     </thead>
     <tbody>
-        @foreach(var t in Model.TodoList) 
-        {
+        @foreach (var t in Model.TodoList) {
             <tr>
                 <td class="todos-column" scope="row">@t.Id</td>
                 <td class="todos-column">@t.Name</td>
                 <td class="buttons-column">
-                    <input type="submit" value="Delete" onclick="deleteTodo(@t.Id)">
-                    <input type="submit" value="Update" onclick="popularForm(@t.Id)">
+                    <input type="submit" class="delete-button" value="Delete" onclick="deleteTodo(@t.Id)">
                 </td>
-            </tr>    
-             
+                <td class="buttons-column">
+                    <input type="submit" class="update-button" value="Update" onclick="popularForm(@t.Id)">
+                </td>
+
+            </tr>
+
         }
     </tbody>
 </table>

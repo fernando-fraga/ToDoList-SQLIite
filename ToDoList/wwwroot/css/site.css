@@ -1,22 +1,135 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+  background-color: #202020;
+  color: #f0f0f0;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+
+    .header h1 {
+        font-size: 32px;
+        color: #f0f0f0;
+        margin: 0px;
+        padding: 10px;
+        border-bottom: 2px solid #f0f0f0;
+        animation: fadeInDown 1s ease-in-out;
+    }
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.add-todo
+{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+
+}
+
+
+.add-todo input[type="text"] 
+{
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #303030;
+    border: 1px solid #444;
+    color: rgba(240, 240, 240, 0.6);
+    text-align: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.add-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    border: none;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+.todo-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.todo-table th,
+.todo-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+.todo-table th {
+    background-color: #303030;
+}
+
+.todo-table tr:hover {
+    background-color: #444;
+}
+
+.delete-button,
+.update-button {
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #f44336;
+    border: none;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+
+.update-button {
+    background-color: #ffa500;
+    margin-left: 5px;
+
+}
+
+.delete-button:hover{
+    background-color: #d32f2f;
+
+}
+.update-button:hover {
+    background-color: #ff9100;
+}
+
+.input-todo {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #303030;
+    border: 1px solid #444;
+    color: rgba(240,240,240, 0.6);
+    text-align: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.input-todo:focus{
+    color: #f0f0f0;
+    outline: none;
+}
+
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
